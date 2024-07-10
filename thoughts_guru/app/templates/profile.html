@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+{% block content %}
+    <h1>{{ user.username }}'s Profile</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}" alt="Profile Picture" class="img-thumbnail">
+        </div>
+        <div class="col-md-9">
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+                    {{ form.username(class="form-control form-control-lg", value=user.username, readonly=True) }}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control form-control-lg", value=user.email, readonly=True) }}
+                </div>
+                <div class="form-group">
+                    <label for="picture">Update Profile Picture</label>
+                    <input type="file" class="form-control-file" id="picture" name="picture">
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <h2>Your Posts</h2>
+    {% for post in user.posts %}
+        <div class="card my-4">
+            <h5 class="card-header">{{ post.title }}</h5>
+            <div class="card-body">
+                <p class="card-text">{{ post.content }}</p>
+                <a href="{{ url_for('post', post_id=post.id) }}" class="btn btn-primary">Read More</a>
+            </div>
+            <div class="card-footer text-muted">
+                Posted on {{ post.date_posted.strftime('%Y-%m-%d') }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
