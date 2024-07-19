@@ -1,18 +1,21 @@
 from flask import Flask, render_template, url_for
 app = Flask(__name__)
+app = Flask(__name__)
+
+app.config['SECRET_KEY'] = '0d9d414a129dfdc1523b5006610d24c7'
 
 posts = [
     {
-        'author': 'Corey Schafer',
+        'author': 'Martin Orji',
         'title': 'Blog Post 1',
         'content': 'First post content',
-        'date_posted': 'April 20, 2018'
+        'date_posted': 'july 12,2024'
     },
     {
-        'author': 'Jane Doe',
+        'author': 'Goodness Imoelin',
         'title': 'Blog Post 2',
         'content': 'Second post content',
-        'date_posted': 'April 21, 2018'
+        'date_posted': 'july 12,2024'
     }
 ]
 
