@@ -7,7 +7,7 @@ User Authentication: Secure login and registration system.
 Post Management: Create, update, and delete your posts easily.
 Community Interaction
 
-Prerequisites
+Prerequisites include:
 
 Python 3.8+
 Flask
@@ -22,7 +22,7 @@ Installation
 1. Clone the repository:
   https://github.com/orjimart/Thoughts_guru 
 
-2. Move into Letspost directory
+2. Move into Thoughts_gurudirectory
     cd thoughts_gurus/thoughts_guru
 
 3. Create a virtual environment and activate it:
@@ -36,7 +36,7 @@ Installation
     export MAIL_USERNAME='your-email@example.com'
     export MAIL_PASSWORD='your-email-password'
 
-6. Run u application
+6. Run application
     python3 run.py
     Open your browser and navigate to http://127.0.0.1:5000
 
